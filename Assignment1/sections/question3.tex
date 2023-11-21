@@ -1,0 +1,23 @@
+\section{Question 3}
+
+    To calculate the maximum execution time for Task A to make the task set schedulable, the first thing to try is to make the statement $U <= n(2^{\frac{1}{n}} - 1)$ true. In this case $n = 3$ which gives us $U <= 0.78$. So continuing from there we can find the maximum Ca using the equation $U = \sum_{i=1}^{n} \frac{C_i}{T_i}$. The following table contains the given values for period and execution time for the tasks.
+    \renewcommand{\arraystretch}{1.4}
+        \begin{figure}[H]
+        \centering
+        \begin{minipage}{0.5\textwidth}
+            \begin{table}[H]
+            \centering
+            \begin{tabular}{|l|l|l|}
+                \hline
+                \textbf{Task}   & \textbf{T=D}  & \textbf{C}  \\ \hline
+                A               & 4             & Ca          \\ \hline
+                B               & 12            & 4           \\ \hline
+                C               & 20            & 9           \\ \hline
+
+            \end{tabular}
+            \end{table}
+        \end{minipage}%
+        \caption{Task set}
+        \label{fig:Q3tasks}
+        \end{figure}
+    \renewcommand{\arraystretch}{1.0}

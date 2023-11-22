@@ -1,6 +1,6 @@
 \section{Question 3}
 
-    To calculate the maximum execution time for Task A to make the task set schedulable, the first thing to try is to make the statement $U <= n(2^{\frac{1}{n}} - 1)$ true. In this case $n = 3$ which gives us $U <= 0.78$. So continuing from there we can find the maximum Ca using the equation $U = \sum_{i=1}^{n} \frac{C_i}{T_i}$. The following table contains the given values for period and execution time for the tasks.
+    To calculate the maximum execution time for Task A to make the task set schedulable, the first thing to try is to make the statement $U <= n(2^{\frac{1}{n}} - 1)$ true. In this case $n = 3$ which gives us $U <= 0.78$. So continuing from there we can find the maximum $Ca$ using the equation $U = \sum_{i=1}^{n} \frac{C_i}{T_i}$. The following table contains the given values for period and execution time for the tasks.
     \renewcommand{\arraystretch}{1.4}
         \begin{figure}[H]
         \centering
@@ -21,3 +21,22 @@
         \label{fig:Q3tasks}
         \end{figure}
     \renewcommand{\arraystretch}{1.0}
+
+    Using the values in the table and the formula $U = \sum_{i=1}^{n} \frac{C_i}{T_i}$ we can extract $Ca$ and get the following equation: $Ca = 4*(0.78 - \frac{4}{12} - \frac{9}{20}) = -0.014ms$. This is not a valid value for $Ca$, so we need to try another approach.\\
+    
+    We will now try to find maximum $Ca$ by calculating the total amount of execution time needed for all tasks in one hyperperiod. The hyperperiod, or the lowest common multiple (LCM) of the periods of the tasks, is $60ms$. We need to find how many instances occur of each task and then multiply it by the execution time of each task.\\
+    Instances of each task in one hyperperiod:
+    \begin{itemize}
+        \item Instances of task A: $\frac{LCM}{Ta} = \frac{60}{4} = 15$
+        \item Instances of task B: $\frac{LCM}{Tb} = \frac{60}{12} = 5$
+        \item Instances of task C: $\frac{LCM}{Tc} = \frac{60}{20} = 3$
+    \end{itemize}
+    
+    The total amount of execution time needed for all tasks in one hyperperiod is then:
+    \begin{itemize}
+        \item Task A: $15*Ca =?$
+        \item Task B: $4*5 = 20ms$
+        \item Task C: $9*3 = 30ms$
+    \end{itemize}
+
+    We now have the following equation: $15*Ca + 20 + 30 <= 60$. Solving for $Ca$ gives us $Ca <= \frac{60-30-20}{15} = 0.67ms$. This gives us the maximum execution time for task A to make the task set schedulable.\\

@@ -1,10 +1,16 @@
 \section{Question 7}
 
     \subsection{Difference between polling server and deferrable server}
+        
         A polling server polls aperiodic tasks at a fixed period, at each poll a specific amount of execution capacity is provided for use if there is any aperiodic task request but it will lose its execution capacity if there are no aperiodic task requests. On the other hand a deferrable server will not lose its capacity if there are no aperiodic task requests. In the case of the polling server an aperiodic task that arrives after a poll has been made will have to wait until the next poll to be executed. In the case of the deferrable server an aperiodic task that arrives after a poll has been made will be executed immediately, given that it is the highest priority task ready at that instance, since the execution capacity has been retained.\\
 
-    \subsection{Does Deferrable Server used together with Rate monotonic increases or decreases the Rate Monotonic schedulability bound?}
-        If the $Us$ (server utility factor) is less than $0.4$ the RM bound is decreased. If the $Us$ is greater than $0.4$ the RM bound is increased.\\
+    \subsection{Does Deferrable Server used together with Rate monotonic increase or decrease the Rate Monotonic schedulability bound?}
+        
+        If the $U_S$ (server utility factor) is less than $0.4$ the RM bound is decreased. If the $U_S$ is greater than $0.4$ the RM bound is increased.\\
 
-    \subsection{What is the main difference between Total Bandwidth Server and Constant Bandwidth Server?}
+    \subsection{Main difference between Total Bandwidth Server and Constant Bandwidth Server?}
+
+        
+
+
         

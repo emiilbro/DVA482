@@ -1,3 +1,11 @@
 \section{Question 6}
 
+    To find the minimum inter-arrival time of the high priority task H, we need to consider the worst-case scenario. This means that the high priority task will occur with the highest frequency possible while the task set is still schedulable. To find the minimum inter-arrival time we need to find the remaining time of the period for the lower task after it has executed and fill that time with the execution of the high priority task and find the amount of instances that can fit in that time period. The tasks have the following properties:
     
+    \begin{itemize}
+        \item $C_L = 10ms$
+        \item $T_L = 50ms$
+        \item $C_H = 3ms$
+    \end{itemize}
+
+    The remaining time in the time period after low priority task L has executed is $50ms - 10ms =40ms$. The high priority task H can execute $\frac{40}{3} = 13.33$ times in that time period. This means that the minimum inter-arrival time of the high priority task H is $\frac{50}{13.33} = 3.75ms$.

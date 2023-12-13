@@ -10,7 +10,7 @@
             \centering
                 \begin{tabular}{|l|l|l|l|}
                 \hline
-                \rowcolor{blue!60}\textbf{Task} & \textbf{Period (T)} & \textbf{Deadline (D)} & \textbf{Exec. time (C)} \\ \hline
+                \rowcolor{green!40}\textbf{Task} & \textbf{Period (T)} & \textbf{Deadline (D)} & \textbf{Exec. time (C)} \\ \hline
                 A   & 1000  & 20    & 3     \\ \hline
                 B   & 100   & 100   & 10    \\ \hline
                 C   & 50    & 50    & 20    \\ \hline
@@ -34,9 +34,9 @@
         \centering
             \begin{tabular}{|l|l|l|}
             \hline
-            \rowcolor{blue!60}\textbf{Task} & \textbf{Semaphore} & \textbf{Length of critical section}   \\ \hline
+            \rowcolor{green!40}\textbf{Task} & \textbf{Semaphore} & \textbf{Length of critical section}   \\ \hline
             \multirow{2}{*}{A}  & $S_1$ & 2 \\
-                                & $S_2$ & 2 \\ \hline
+                                & $S_3$ & 2 \\ \hline
             \multirow{3}{*}{B}  & $S_2$ & 7 \\
                                 & $S_3$ & 5 \\ 
                                 & $S_4$ & 2 \\ \hline
@@ -70,8 +70,8 @@ The priority ceiling of each semaphore is the highest priority of the tasks that
 
 \begin{itemize}
     \item $ceil(S_1) = max(P(A), P(D), P(G)) = 7$
-    \item $ceil(S_2) = max(P(A), P(B), P(C)) = 4$
-    \item $ceil(S_3) = P(B) = 1$
+    \item $ceil(S_2) = max(P(B), P(C)) = 2$
+    \item $ceil(S_3) = max(P(A), P(B)) = 4$
     \item $ceil(S_4) = P(B) = 1$
 \end{itemize}
 
@@ -89,39 +89,39 @@ Using the \ac{pcp}, the priority of a task is the highest priority of the semaph
         \item $lp(A) = \{B, C, E\}$
         \item $\text{B uses } S_2, S_3 \text{ and } S_4$
         \begin{itemize}
-            \item $P(A)>ceil(S_2) = 4>4? \text{ No} \rightarrow \text{B with } S_2 \text{ can block A.}$
-            \item $P(A)>ceil(S_3) = 4>1? \text{ Yes} \rightarrow \text{B with } S_3 \text{ cannot block A.}$
+            \item $P(A)>ceil(S_2) = 4>2? \text{ Yes} \rightarrow \text{B with } S_2 \text{ cannot block A.}$
+            \item $P(A)>ceil(S_3) = 4>4? \text{ No} \rightarrow \text{B with } S_3 \text{ can block A.}$
             \item $P(A)>ceil(S_4) = 4>1? \text{ Yes} \rightarrow \text{B with } S_4 \text{ cannot block A.}$
         \end{itemize}
         \item $\text{C uses } S_2$
         \begin{itemize}
-            \item $P(A)>ceil(S_2) = 4>4? \text{ No} \rightarrow \text{C with } S_2 \text{ can block A.}$
+            \item $P(A)>ceil(S_2) = 4>2? \text{ No} \rightarrow \text{C with } S_2 \text{ can block A.}$
         \end{itemize}
         \item $\text{E uses no semaphore}$ 
         \begin{itemize}
             \item $P(A)>P(E) = 4>3? \text{ Yes} \rightarrow \text{E cannot block A.}$
         \end{itemize}
-        \item $B_A = max(CS(B,S_2), CS(C,S_2)) = 7$\\
+        \item $B_A = CS(B,S_3) = 5$\\
     \end{itemize}
 
     $B_G = ?$\\
     $lp(G) = \text{all tasks that has lower priority than G.}$\\
     $lp(G) = \{A, B, C, D, E, F\}$
     \begin{itemize}
-        \item $\text{A uses } S_1 \text{ and } S_2$
+        \item $\text{A uses } S_1 \text{ and } S_3$
         \begin{itemize}
             \item $P(G)>ceil(S_1) = 7>7? \text{ No} \rightarrow \text{A with } S_1 \text{ can block G.}$
-            \item $P(G)>ceil(S_2) = 7>4? \text{ Yes} \rightarrow \text{A with } S_2 \text{ cannot block G.}$
+            \item $P(G)>ceil(S_3) = 7>4? \text{ Yes} \rightarrow \text{A with } S_2 \text{ cannot block G.}$
         \end{itemize}
         \item $\text{B uses } S_2, S_3 \text{ and } S_4$
         \begin{itemize}
-            \item $P(G)>ceil(S_2) = 7>4? \text{ Yes} \rightarrow \text{B with } S_2 \text{ cannot block G.}$
-            \item $P(G)>ceil(S_3) = 7>1? \text{ Yes} \rightarrow \text{B with } S_3 \text{ cannot block G.}$
+            \item $P(G)>ceil(S_2) = 7>2? \text{ Yes} \rightarrow \text{B with } S_2 \text{ cannot block G.}$
+            \item $P(G)>ceil(S_3) = 7>4? \text{ Yes} \rightarrow \text{B with } S_3 \text{ cannot block G.}$
             \item $P(G)>ceil(S_4) = 7>1? \text{ Yes} \rightarrow \text{B with } S_4 \text{ cannot block G.}$
         \end{itemize}
         \item $\text{C uses } S_2$
         \begin{itemize}
-            \item $P(G)>ceil(S_2) = 7>4? \text{ Yes} \rightarrow \text{C with } S_2 \text{ cannot block G.}$
+            \item $P(G)>ceil(S_2) = 7>2? \text{ Yes} \rightarrow \text{C with } S_2 \text{ cannot block G.}$
         \end{itemize}
         \item $\text{D uses } S_1$
         \begin{itemize}
@@ -138,20 +138,21 @@ Using the \ac{pcp}, the priority of a task is the highest priority of the semaph
         \item $B_G = max(CS(A,S_1), CS(D,S_1)) = 2$\\
     \end{itemize}
 
-    Conclusively, $B_A = 7$ and $B_G = 2$.\\
+    Conclusively, $B_A = 5$ and $B_G = 2$.\\
 
 \subsection{\textbf{\ac{rta}}}
     Doing the \ac{rta} of the tasks A and G we get the following results:\\
     $R_A^{n+1} = C_A + B_A + \sum\limits_{\forall j \in hp(A)} \left[\frac{R_A^n}{T_j}\right] C_j$\\
     $j \in hp(A) = \{D, F, G\}$\\
-    $R_A^0 = C_A = 3$ \\
-    $R_A^{1} = C_A + B_A + \sum \left[\frac{R_A^0}{T_j}\right] C_j = 3 + 7 + \left[\frac{3}{57}\right]5 + \left[\frac{3}{7}\right]1 + \left[\frac{3}{30}\right]2 = 10.9 \approx 11$\\
-    $R_A^{2} = C_A + B_A + \sum \left[\frac{R_A^1}{T_j}\right] C_j = 3 + 7 + \left[\frac{11}{57}\right]5 + \left[\frac{11}{7}\right]1 + \left[\frac{11}{30}\right]2 = 13.3 \approx 13$\\
-    $R_A^{3} = C_A + B_A + \sum \left[\frac{R_A^2}{T_j}\right] C_j = 3 + 7 + \left[\frac{13}{57}\right]5 + \left[\frac{13}{7}\right]1 + \left[\frac{13}{30}\right]2 = 13.9 \approx  = 14$\\
-    $R_A^{4} = C_A + B_A + \sum \left[\frac{R_A^3}{T_j}\right] C_j = 3 + 7 + \left[\frac{14}{57}\right]5 + \left[\frac{14}{7}\right]1 + \left[\frac{14}{30}\right]2 = 14.2 \approx 14 = R_A^3$\\
-    $R_A^4 = R_A^3 = 14 = \text{Response time of }A$\\
+    $R_A^0 = C_A + B_A = 8$ \\
+    $R_A^{1} = C_A + B_A + \sum \left[\frac{R_A^0}{T_j}\right] C_j = 3 + 5 + \left[\frac{8}{57}\right]5 + \left[\frac{8}{7}\right]1 + \left[\frac{8}{30}\right]2 = 3 + 5 + [1]*5 + [2]*1 + [1]*2 = 17$\\
+    $R_A^{2} = C_A + B_A + \sum \left[\frac{R_A^1}{T_j}\right] C_j = 3 + 5 + \left[\frac{17}{57}\right]5 + \left[\frac{17}{7}\right]1 + \left[\frac{17}{30}\right]2 = 3 + 5 [1]*5 + [3]*1 + [1]*2 = 18$\\
+    $R_A^{3} = C_A + B_A + \sum \left[\frac{R_A^2}{T_j}\right] C_j = 3 + 7 + \left[\frac{18}{57}\right]5 + \left[\frac{18}{7}\right]1 + \left[\frac{18}{30}\right]2 = 3 + 5 [1]*5 [3]*1 + [1]*2 = 18$\\
+    $R_A^3 = R_A^2 = 18$\\
 
-    $R_G^{n+1} = C_G + B_G + \sum\limits_{\forall j \in hp(G)} \left[\frac{R_G^n}{T_j}\right] C_j$\\
+    $R_A = 18$\\
+    \\$R_G^{n+1} = C_G + B_G + \sum\limits_{\forall j \in hp(G)} \left[\frac{R_G^n}{T_j}\right] C_j$\\
     $j \in hp(G) = \{\text{No tasks with higher priority than }G\}$\\
-    $R_G^0 = C_G = 2$ \\
     Worst case scenario, $R_G = C_G + B_G = 2 + 2 = 4$\\
+
+    $R_G = 4$\\

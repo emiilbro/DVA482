@@ -1,2 +1,95 @@
 \section{Question 2}
+    \subsection{Assignment A}
+
+    \renewcommand{\arraystretch}{1.4}
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|}
+            \hline
+            \rowcolor{green!40}\textbf{Message}     & \textbf{Maximum bit size}     & \textbf{Transmission time (ms)}  \\ \hline
+            Sense A                                 & 75                            & 1.000     \\ \hline
+            Sense B                                 & 95                            & 1.267     \\ \hline
+            Sense C                                 & 95                            & 1.267     \\ \hline
+            Act A                                   & 65                            & 0.867     \\ \hline
+            Act B                                   & 75                            & 1.000     \\ \hline
+            Act C                                   & 95                            & 1.267     \\ \hline
+        \end{tabular}
+        \end{table}
+    \end{minipage}%
+    \caption{Maximum bit size and transmission time for each message}
+    \label{fig:maxbittrans}
+    \end{figure}
+    \renewcommand{\arraystretch}{1.0}
+
+    \subsection{Assignment B}
+
+    \renewcommand{\arraystretch}{1.4}
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \rowcolor{green!40}\textbf{Node \& CAN}  & \textbf{Load (percent)}   \\ \hline
+            Node A                                  & 55.33                     \\ \hline
+            Node B                                  & 55.33                     \\ \hline
+            Node C                                  & 50.33                     \\ \hline
+            Node A                                  & 50.00                     \\ \hline
+            CAN                                     & 54.00                     \\ \hline
+        \end{tabular}
+        \end{table}
+    \end{minipage}%
+    \caption{Load (utilization) of on each node and the CAN bus. Displayed in percetage.}
+    \label{fig:Load}
+    \end{figure}
+    \renewcommand{\arraystretch}{1.0}
+
+    \subsection{Assignment C}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \begin{table}[H]
+        \centering
+            \begin{tabular}{|l|l|l|}
+            \hline
+            \rowcolor{green!40}\textbf{Node/CAN} & \textbf{Task/Message} & \textbf{Priority}   \\ \hline
+            \multirow{5}{*}{Node A}     & SenseA    & 2 \\
+                                        & ActA      & 2 \\ 
+                                        & P1A       & 1 \\
+                                        & P2A       & 3 \\
+                                        & P3A       & 4 \\ \hline
+            \multirow{5}{*}{Node B}     & SenseB    & 2 \\
+                                        & ActB      & 2 \\ 
+                                        & P1B       & 1 \\
+                                        & P2B       & 3 \\
+                                        & P3B       & 4 \\ \hline
+            \multirow{5}{*}{Node C}     & SenseC    & 2 \\
+                                        & ActC      & 2 \\ 
+                                        & P1C       & 1 \\
+                                        & P2C       & 3 \\
+                                        & P3C       & 4 \\ \hline
+            \multirow{3}{*}{Node D}     & CalcA     & 1 \\
+                                        & CalcB     & 1 \\ 
+                                        & CalcC     & 2 \\ \hline
+            \multirow{6}{*}{CAN}        & SenseA    & 1 \\
+                                        & ActA      & 1 \\ 
+                                        & SenseB    & 1 \\
+                                        & ActB      & 1 \\
+                                        & SenseC    & 2 \\
+                                        & ActC      & 2 \\ \hline
+            \end{tabular}
+        \end{table}
+    \end{minipage}
+    \caption{The priorities of the tasks and messages. Priority is set according to Rate Monotonic and 1 is the highest priority possible.}
+    \label{fig:priority}
+    \end{figure}
+    \renewcommand{\arraystretch}{1.0}
+
+    \subsection{Assignment D}
+
 

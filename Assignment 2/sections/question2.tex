@@ -92,4 +92,77 @@
 
     \subsection{Assignment D}
 
+    \renewcommand{\arraystretch}{1.4}
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \begin{table}[H]
+        \centering
+            \begin{tabular}{|l|l|l|}
+            \hline
+            \rowcolor{green!40}\textbf{Node} & \textbf{Task} & \textbf{Local Response-Time (ms)}   \\ \hline
+            \multirow{5}{*}{Node A}     & SenseA    & 2.000 \\
+                                        & ActA      & 6.867 \\ 
+                                        & P1A       & 1.000 \\
+                                        & P2A       & 7.000 \\
+                                        & P3A       & 13.000 \\ \hline
+            \multirow{5}{*}{Node B}     & SenseB    & 2.000 \\
+                                        & ActB      & 8.267 \\ 
+                                        & P1B       & 1.000 \\
+                                        & P2B       & 9.000 \\
+                                        & P3B       & 13.000 \\ \hline
+            \multirow{5}{*}{Node C}     & SenseC    & 5.000 \\
+                                        & ActC      & 29.800 \\ 
+                                        & P1C       & 1.000 \\
+                                        & P2C       & 5.000 \\
+                                        & P3C       & 14.000 \\ \hline
+            \multirow{3}{*}{Node D}     & CalcA     & 4.000 \\
+                                        & CalcB     & 5.267 \\ 
+                                        & CalcC     & 20.400 \\ \hline
+            \end{tabular}
+        \end{table}
+    \end{minipage}
+    \caption{The local response-time for each task on each node.}
+    \label{fig:localresponse}
+    \end{figure}
+    \renewcommand{\arraystretch}{1.0}
 
+    \renewcommand{\arraystretch}{1.4}
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \rowcolor{green!40}\textbf{Busy periods on CAN}  & \textbf{Periods} \\ \hline
+            Trans1                                  & 1.867                     \\ \hline
+            Trans2                                  & 2.267                     \\ \hline
+            Trans2                                  & 10.800                    \\ \hline
+        \end{tabular}
+        \end{table}
+    \end{minipage}%
+    \caption{The busy periods on the CAN bus.}
+    \label{fig:busyperiods}
+    \end{figure}
+    \renewcommand{\arraystretch}{1.0}
+
+    \renewcommand{\arraystretch}{1.4}
+    \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \rowcolor{green!40}\textbf{Transaction}  & \textbf{Transaction Time} \\ \hline
+            Trans1                                  & 6.867                     \\ \hline
+            Trans2                                  & 8.267                     \\ \hline
+            Trans2                                  & 29.800                    \\ \hline
+        \end{tabular}
+        \end{table}
+    \end{minipage}%
+    \caption{The transaction time for each transaction.}
+    \label{fig:transactiontime}
+    \end{figure}
+    \renewcommand{\arraystretch}{1.0}

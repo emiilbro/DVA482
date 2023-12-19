@@ -1,5 +1,5 @@
 \section{Question 2}
-        \subsection{a}
+        \subsection{\textbf{a}}
             Sufficient schedulability test for RM scheduling: $U <= n(2^{1/n} - 1)$ \\ where n is the number of tasks in the task set and U is the processor utilization factor, $U = \sum_{i=1}^{n} \frac{C_i}{T_i}$. 
 
         \renewcommand{\arraystretch}{1.4}
@@ -23,13 +23,13 @@
         \end{figure}
     \renewcommand{\arraystretch}{1.0}
 
-        \subsubsection{Task set schedulable?}
+        \subsubsection{\textbf{Task set schedulable?}}
         $U = \sum_{i=1}^{n} \frac{C_i}{T_i} = \frac{1}{3} + \frac{2}{5} + \frac{0.5}{2} = 0.98$ \\
         $U <= n(2^{1/n} - 1) = 3(2^{1/3} - 1) = 0.78$ \\
         Since the statement $U <= n(2^{1/n} - 1)$ is false in this case, the task set cannot be proven to be schedulable with this sufficient test method.
 
         \subsection{b}
-            \subsubsection{Exact schedulability test, Tracing}
+            \subsubsection{\textbf{Exact schedulability test, Tracing}}
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.5\textwidth]{images/Ass1Q2.drawio.png}

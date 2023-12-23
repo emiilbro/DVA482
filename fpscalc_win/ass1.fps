@@ -1,0 +1,432 @@
+! Global variables
+! Scalars
+scalar LoadNode_A, LoadNode_B, LoadNode_C, LoadNode_D, LoadNode_CAN, MBS_SenseA, MBS_SenseB, MBS_SenseC, MBS_ActA, MBS_ActB, MBS_ActC, Trans_t_SenseA, Trans_t_SenseB, Trans_t_SenseC, Trans_t_ActA, Trans_t_ActB, Trans_t_ActC;
+
+! Indexed
+indexed JafterA, JafterB, JafterC, JafterD, TransactionsR;
+
+! Tasks
+tasks Trans1, Trans2, Trans3;
+
+! --------------------------------------------------------------------------------------------------------
+
+! Code for Node A
+system Node_A{
+	declarations {
+		! Variables
+		indexed T, D, C, W, J, R, LoadUtilizationArray;
+		priority P;
+		scalar B;
+
+		! Tasks
+		tasks Sense_A, Act_A, P1A, P2A, P3A;
+	}
+
+	initialise {
+		! Periods
+		T[Sense_A] = 10;
+		T[Act_A] = 10;
+		T[P1A] = 5;
+		T[P2A] = 15;
+		T[P3A] = 50;
+
+		! Release Jitters
+		J[Sense_A] = 0;
+		J[Act_A] = 0;
+		J[P1A] = 0;
+		J[P2A] = 2;
+		J[P3A] = 5;
+
+		! Execution times
+		C[Sense_A] = 1;
+		C[Act_A] = 1;
+		C[P1A] = 1;
+		C[P2A] = 2;
+		C[P3A] = 1;
+
+		! Priority according to Rate Monotonic where 1 is the Highest priority
+		P[Sense_A] = 3;
+		P[Act_A] = 4;
+		P[P1A] = 1;
+		P[P2A] = 2;
+		P[P3A] = 5;
+
+		! Deadlines
+		D[Sense_A] = 15;
+		D[Act_A] = 15;
+		D[P1A] = 2;
+		D[P2A] = 10;
+		D[P3A] = 25;
+
+		! Blocking, all tasks have the same blocking
+		B = 0;
+	}
+
+	formulas {
+		! Jitter
+		J[Act_A] = JafterD[Trans1];
+
+		! Calculate the response-time
+		W[i] = C[i] + B + sigma(hp, ceiling((W[i]+J[j])/T[j])*C[j]);
+		R[i] = W[i] + J[i];
+		
+		! J to be inherited by Node_CAN
+		JafterA[Trans1] = R[Sense_A];
+
+		! Save R for Act_A to be able to use it in the global print
+		TransactionsR[Trans1] = R[Act_A];
+
+		! Load Utilization calculation and transformation to percent
+		LoadUtilizationArray[i] = C[i] / T[i];
+		LoadNode_A = 100 * (LoadUtilizationArray[Sense_A] + LoadUtilizationArray[Act_A] + LoadUtilizationArray[P1A] + LoadUtilizationArray[P2A] + LoadUtilizationArray[P3A]);
+	}
+}
+
+! -----------------------------------------------------------------------------------------------------------------------------
+
+system Node_B{
+	declarations {
+		! Variables
+		indexed T, D, C, W, J, R, LoadUtilizationArray;
+		priority P;
+		scalar B;
+		
+		! Tasks
+		tasks Sense_B, Act_B, P1B, P2B, P3B;
+	}
+
+	initialise {
+		! Periods
+		T[Sense_B] = 10;
+		T[Act_B] = 10;
+		T[P1B] = 5;
+		T[P2B] = 15;
+		T[P3B] = 50;
+
+		! Release Jitters
+		J[Sense_B] = 0;
+		J[Act_B] = 0;
+		J[P1B] = 0;
+		J[P2B] = 2;
+		J[P3B] = 5;
+
+		! Execution times
+		C[Sense_B] = 1;
+		C[Act_B] = 1;
+		C[P1B] = 1;
+		C[P2B] = 2;
+		C[P3B] = 1;
+
+		! Priority according to Rate Monotonic where 1 is the Highest priority
+		P[Sense_B] = 3;
+		P[Act_B] = 4;
+		P[P1B] = 1;
+		P[P2B] = 2;
+		P[P3B] = 5;
+
+		! Deadline for each task
+		D[Sense_B] = 20;
+		D[Act_B] = 20;
+		D[P1B] = 2;
+		D[P2B] = 10;
+		D[P3B] = 25;
+
+		! Blocking time
+		B = 0;
+	}
+
+	formulas {
+		! Jitter
+		J[Act_B] = JafterD[Trans2];
+
+		! Calculate the response-time
+		W[i] = C[i] + B + sigma(hp, ceiling((W[i]+J[j])/T[j])*C[j]);
+		R[i] = W[i] + J[i];
+
+		! Jitter to be inherited by Node_CAN
+		JafterA[Trans2] = R[Sense_B];
+		
+		! Response Time Saving
+		TransactionsR[Trans2] = R[Act_B];
+
+		! Load Utilization calculation and transformation to percent
+		LoadUtilizationArray[i] = C[i]/T[i];
+		LoadNode_B = 100 * (LoadUtilizationArray[Sense_B] + LoadUtilizationArray[Act_B] + LoadUtilizationArray[P1B] + LoadUtilizationArray[P2B] + LoadUtilizationArray[P3B]);
+	}
+}
+
+! ------------------------------------------------------------------------------------------------------------------------------
+
+system Node_C{
+	declarations {
+		! Variables
+		indexed T, D, C, W, J, R, LoadUtilizationArray;
+		priority P;
+		scalar B;
+		
+		! Tasks
+		tasks Sense_C, Act_C, P1C, P2C, P3C;
+	}
+
+	initialise {
+		! Periods
+		T[Sense_C] = 20;
+		T[Act_C] = 20;
+		T[P1C] = 5;
+		T[P2C] = 15;
+		T[P3C] = 50;
+
+		! Jitters
+		J[Sense_C] = 0;
+		J[Act_C] = 0;
+		J[P1C] = 0;
+		J[P2C] = 2;
+		J[P3C] = 5;
+
+		! Execution times
+		C[Sense_C] = 2;
+		C[Act_C] = 2;
+		C[P1C] = 1;
+		C[P2C] = 2;
+		C[P3C] = 1;
+
+		! Priority according to Rate Monotonic where 1 is the Highest priority
+		P[Sense_C] = 4;
+		P[Act_C] = 5;
+		P[P1C] = 1;
+		P[P2C] = 2;
+		P[P3C] = 3;
+
+		! Blocking
+		B = 0;
+	}
+
+	formulas {
+		! Jitter
+		J[Sense_C] = JafterD[Trans3];
+
+		! Calculate the response-time
+		W[i] = C[i] + B + sigma(hp, ceiling((W[i]+J[j])/T[j])*C[j]);
+		R[i] = W[i] + J[i];
+
+		! J to be inherited by Node_CAN
+		JafterA[Trans3] = R[Sense_C];
+		
+		! Response Time Saving
+		TransactionsR[Trans3] = R[Act_C];
+
+		
+		! Load Utilization calculation and transformation to percent
+		LoadUtilizationArray[i] = C[i]/T[i];
+		LoadNode_C = 100 * (LoadUtilizationArray[Sense_C] + LoadUtilizationArray[Act_C] + LoadUtilizationArray[P1C] + LoadUtilizationArray[P2C] + LoadUtilizationArray[P3C]);
+	}
+}
+
+! ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+system Node_D{
+	declarations {
+		! Variables
+		indexed T, J, C, W, R, LoadUtilizationArray;
+		priority P;
+		scalar B;
+		
+		! Tasks
+		tasks Calc_A, Calc_B, Calc_C;
+	}
+
+	initialise {
+		! Periods
+		T[Calc_A] = 10;
+		T[Calc_B] = 10;
+		T[Calc_C] = 20;
+
+		! Release Jitters
+		J[Calc_A] = 0;
+		J[Calc_B] = 0;
+		J[Calc_C] = 0;
+
+		! Execution times
+		C[Calc_A] = 1;
+		C[Calc_B] = 2;
+		C[Calc_C] = 4;
+
+		! Assumed priority by Rate Monotonic (Looked at D since Calc_A and Calc_B has the same period)
+		P[Calc_A] = 1;
+		P[Calc_B] = 1;
+		P[Calc_C] = 2;
+
+		! Blocking
+		B = 0;
+	}
+
+	formulas {
+		! Jitters
+		J[Calc_A] = JafterB[Trans1];
+		J[Calc_B] = JafterB[Trans2];
+		J[Calc_C] = JafterB[Trans3];
+
+		! Calculate the response-time
+		W[i] = C[i] + B + sigma(hp, ceiling((W[i]+J[j])/T[j])*C[j]);
+		R[i] = W[i] + J[i];
+		
+		! Store R as inherited Jitter
+		JafterC[Trans1] = R[Calc_A];
+		JafterC[Trans2] = R[Calc_B];
+		JafterC[Trans3] = R[Calc_C];
+
+		! Load Utilization calculation and transformation to percent
+		LoadUtilizationArray[i] = C[i]/T[i];
+		LoadNode_D = 100 * (LoadUtilizationArray[Calc_A] + LoadUtilizationArray[Calc_B] + LoadUtilizationArray[Calc_C]);
+	}
+}
+
+! ------------------------------------------------------------------------------------------------------------------------------
+
+system Node_CAN {
+	declarations {
+		! Variables
+		indexed T, S, C, J, MaxBitSize, R, W, LoadUtilizationArray;
+		scalar B, Bps, Tau;
+		priority P;
+
+		! Tasks
+		tasks Sense_A, Act_A, Sense_B, Act_B, Sense_C, Act_C;
+	}
+
+	initialise {
+        S[Sense_A] = 2;
+        S[Act_A] = 1;
+        S[Sense_B] = 4;
+        S[Act_B] = 2;
+        S[Sense_C] = 4;
+        S[Act_C] = 4;
+
+		! Periods
+		T[Sense_A]	= 10;
+		T[Act_A] = 10;
+		T[Sense_B] = 10;
+		T[Act_B] = 10;
+		T[Sense_C] = 20;
+		T[Act_C] = 20;
+
+		! Priorities
+		P[Sense_A] = 1;
+		P[Act_A] = 1;
+		P[Sense_B] = 1;
+		P[Act_B] = 1;
+		P[Sense_C] = 2;
+		P[Act_C] = 2;
+
+		! Blocking
+		B = 0;
+
+		! CAN speed (bits per second)
+		Bps = 75000;
+    }
+
+	formulas {
+		! Tau is time in ms to send one bit
+		Tau = 1/(Bps/1000);
+
+		! J to be inherited by CAN-BUS
+		J[Sense_A] = JafterA[Trans1];
+		J[Sense_B] = JafterA[Trans2];
+		J[Sense_C] = JafterA[Trans3];
+
+		J[Act_A] = JafterC[Trans1];
+		J[Act_B] = JafterC[Trans2];
+		J[Act_C] = JafterC[Trans3];
+
+		! MaxBitSize
+		MaxBitSize[i] = 47 + S[i] * 8 + floor((34 + S[i] * 8 - 1) / 4);
+
+		! Assigning each bit size to a global array to be able to print the values in the global system
+		MBS_SenseA = MaxBitSize[Sense_A];
+		MBS_SenseB = MaxBitSize[Sense_B];
+		MBS_SenseC = MaxBitSize[Sense_C];
+		MBS_ActA = MaxBitSize[Act_A];
+		MBS_ActB = MaxBitSize[Act_B];
+		MBS_ActC = MaxBitSize[Act_C];
+
+		! Transmission time for all messages
+		C[i] = MaxBitSize[i] * Tau;
+
+		! Assign each transmission to a global array to be able to print the values in the global system
+		Trans_t_SenseA = C[Sense_A];
+		Trans_t_SenseA = C[Sense_B];
+		Trans_t_SenseC = C[Sense_C];
+		Trans_t_ActA = C[Act_A];
+		Trans_t_ActB = C[Act_B];
+		Trans_t_ActC = C[Act_C];
+
+		! Calculate the response-time
+		W[i] = B + sigma(hp, ceiling((W[i]+J[j]+Tau)/T[j])*C[j]);
+		R[i] = C[i] + W[i] + J[i];
+
+		! Jitter to be inherited by Node D
+		JafterB[Trans1] = R[Sense_A];
+		JafterB[Trans2] = R[Sense_B];
+		JafterB[Trans3] = R[Sense_C];
+
+		! Jitter to be inherited by node A, B, C
+		JafterD[Trans1] = R[Act_A];
+		JafterD[Trans2] = R[Act_B];
+		JafterD[Trans3] = R[Act_C];
+
+		! Load Utilization calculation and transformation to percent
+		LoadUtilizationArray[i] = C[i] / T[i];
+		LoadNode_CAN = 100 * (LoadUtilizationArray[Sense_A] + LoadUtilizationArray[Sense_B] + LoadUtilizationArray[Sense_C] + LoadUtilizationArray[Act_A] + LoadUtilizationArray[Act_B] + LoadUtilizationArray[Act_C]);
+	}
+}
+
+!----------------------------------------------------------------------------------------
+
+system global {
+	declarations {
+		! Variables
+		scalar MaxBitSize_SenseA, MaxBitSize_SenseB, MaxBitSize_SenseC, MaxBitSize_ActA, MaxBitSize_ActB, MaxBitSize_ActC, TransmissionTime_ms_SenseA, TransmissionTime_ms_SenseB, TransmissionTime_ms_SenseC, TransmissionTime_ms_ActA, TransmissionTime_ms_ActB, TransmissionTime_ms_ActC, LoadFor_NodeA, LoadFor_NodeB, LoadFor_NodeC, LoadFor_NodeD, LoadFor_NodeCAN;
+		indexed LocalResponseTime_NodeD, CANBUS_busy_period, R_ms;
+
+		! Tasks
+		tasks Trans1, Trans2, Trans3;
+
+	}
+
+	initialise {
+		TransactionsR[i] = 0;
+		JafterA[i] = 0;
+		JafterB[i] = 0;
+		JafterC[i] = 0;
+		JafterD[i] = 0;
+	}
+
+	formulas {
+		! All this code is to make a sumarised print
+		MaxBitSize_SenseA = MBS_SenseA;
+		MaxBitSize_SenseB = MBS_SenseB;
+		MaxBitSize_SenseC = MBS_SenseC;
+		MaxBitSize_ActA = MBS_ActA;
+		MaxBitSize_ActB = MBS_ActB;
+		MaxBitSize_ActC = MBS_ActC;
+
+		TransmissionTime_ms_SenseA = Trans_t_SenseA;
+		TransmissionTime_ms_SenseB = Trans_t_SenseB;
+		TransmissionTime_ms_SenseC = Trans_t_SenseC;
+		TransmissionTime_ms_ActA = Trans_t_ActA;
+		TransmissionTime_ms_ActB = Trans_t_ActB;
+		TransmissionTime_ms_ActC = Trans_t_ActC;
+
+		LoadFor_NodeA = LoadNode_A;
+		LoadFor_NodeB = LoadNode_B;
+		LoadFor_NodeC = LoadNode_C;
+		LoadFor_NodeD = LoadNode_D;
+		LoadFor_NodeCAN = LoadNode_CAN;
+
+		R_ms[i] = TransactionsR[i];
+
+		LocalResponseTime_NodeD[i] = JafterC[i] - JafterB[i];
+
+		CANBUS_busy_period[i] = (JafterB[i] - JafterA[i]) + (JafterD[i] - JafterC[i]);
+	}
+}

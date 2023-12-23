@@ -115,7 +115,7 @@
             \end{figure}
 
             Calculations of the delays are as follows:
-            $$Delay(TP^A) = \alpha_4(TP^A) + R_4(TP^A) - \alpha_1(TP^A) = (7.62+13) + 1 - 0 = 21.62ms$$
+            $$Delay(TP^A) = \alpha_4(TP^A) + R_4(TP^A) - \alpha_1(TP^A) = (7.62+10) + 4 - 0 = 21.62ms$$
             $$Delay(TP^B) = \alpha_3(TP^B) + R_3(TP^B) - \alpha_1(TP^B) = (7.62+15) + 1 - 0 = 23.62ms$$
             $$\text{Age Delay} = max(Delay(TP^A), Delay(TP^B)) = 23.62ms$$
 
@@ -144,8 +144,8 @@
             \end{figure}
 
             Calculations of the delays are as follows: 
-            $$Reaction(TP^C) = \alpha_4(TP^C) + R_4(TP^C) - \alpha_{first}(Pred(TP^C)) = (15.62+3) + 1 - 0 = 19.62ms$$
-            $$Reaction(TP^D) = \alpha_3(TP^D) + R_3(TP^D) - \alpha_{first}(Pred(TP^D)) = (15.62+13) + 1 - 0 = 29.62ms$$
+            $$Reaction(TP^C) = \alpha_4(TP^C) + R_4(TP^C) - \alpha_{first}(Pred(TP^C)) = (15.62+0) + 4 - 0 = 19.62ms$$
+            $$Reaction(TP^D) = \alpha_3(TP^D) + R_3(TP^D) - \alpha_{first}(Pred(TP^D)) = (15.62+10) + 4 - 0 = 29.62ms$$
             $$\text{Reaction Delay} = max(Reaction(TP^C), Reaction(TP^D)) = 29.62ms$$
 
             Therefore, the reaction delay is $29.62ms$.

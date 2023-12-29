@@ -1,0 +1,40 @@
+\section*{Question 1} 
+    \subsection*{a)}
+    Cache coherency refers to the property of consistently storing data in multiple caches that replicate the same data. In a multi-core or multiprocessor system with a shared cache, each core or processor has a copy of the same data. When one core or processor modifies the data, the other cores or processors need to be notified of the change and update their copies of the data. If all processors have a consistent view of the data at each memory location and at each point in time, then the system is said to be cache coherent.
+
+    \subsection*{b)}
+    A shared memory can be beneficial in a multi-core stystem. It allows different cores to access a common pool of memory, facilitating communication by reading and writing data to shared locations. However, it can also be problematic if the system gets too large. If the system gets to large issues can arise such as larger overhead because of cores waiting for access to the shared memory and communication via shared memory. If no proper synchronization is used, the system might become incoherent and also lead to race conditions.
+
+    \subsection*{c)}
+    The two main scheduling approaches are partitioned and global scheduling. 
+        \subsubsection*{\textbf{Partitioned}}
+        In partitioned scheduling the tasks and preocessors are patitioned into groups. This means that each preocessor get a set of tasks that wait in a queue dedicated to that preocessor. This makes each preocessor operate independently which increase simplicity of the system.
+        \begin{itemize}
+            \item \textbf{Strengths:}
+            \begin{itemize}
+                \item \textbf{Simplicity:} Each preocessor operates independently and scheduling can be done locally.
+                \item \textbf{Predictability:} Since each preocessor operates independently and scheduling is done locally, the system can be designed in a predictable way.
+                \item \textbf{Low overhead:} Since each preocessor independently manages its own tasks, there is minimal overhead associated with coordination and communication between preocessors.
+            \end{itemize}
+            \item \textbf{Weak points:}
+            \begin{itemize}
+                \item \textbf{Load imbalance:} If the tasks are not evenly distributed between the preocessors, some preocessors might be idle while others are overloaded.
+            \end{itemize}
+        \end{itemize}
+
+        \subsubsection*{\textbf{Global}}
+        In global scheduling, all preocessors share a common queue of tasks. A global scheduler makes decisions about task allocation, considering the entire set of tasks and the status of each preocessor. Tasks can be distributed between processors as needed.
+        \begin{itemize}
+            \item \textbf{Strengths:}
+            \begin{itemize}
+                \item \textbf{Adaptive:} The tasks are assigned dynamically and the system can adapt to changes in the workload. In an open system, a task can be added or removed from the system dynamically and the global scheduler can adapt to this.
+                \item \textbf{Less context switching:} Since the tasks are assigned dynamically, there is less context switching between tasks. This reduces the overhead of the system. Tasks can only get preempted once all processors are working on a task.
+            \end{itemize}
+            \item \textbf{Weak points:}
+            \begin{itemize}
+                \item \textbf{Complexity:} The global scheduler needs to consider the entire set of tasks and the status of each preocessor when making scheduling decisions. This increases the complexity of the system.
+                \item \textbf{RM and EDF not optimal:} RM and EDF might not be optimal in a global scheduling system. Implementing global scheduling can be more complex compared to partitioned scheduling. Coordinating tasks across processors will require a more complex scheduling design.
+                \item \textbf{Overhead:} The global scheduler needs to communicate with all preocessors to make scheduling decisions. This increases the overhead of the system.
+            \end{itemize}
+        \end{itemize}
+        

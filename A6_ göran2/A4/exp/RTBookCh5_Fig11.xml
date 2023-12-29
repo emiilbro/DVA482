@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+</declaration><template><name x="5" y="5">Fig11</name><declaration>// Place local declarations here.
+clock x;
+</declaration><location id="id0" x="208" y="-40"><name x="206" y="-78">I1</name></location><location id="id1" x="16" y="-40"><name x="6" y="-70">I0</name></location><init ref="id1"/><transition><source ref="id0"/><target ref="id1"/><label kind="guard" x="160" y="-8">x &lt;= 1</label><nail x="112" y="8"/></transition><transition><source ref="id1"/><target ref="id0"/><label kind="guard" x="24" y="-104">x&gt;=2</label><label kind="assignment" x="144" y="-112">x=0</label><nail x="112" y="-96"/></transition></template><template><name>Fig12</name><declaration>chan a;
+chan b;
+clock x1;
+</declaration><location id="id2" x="248" y="0"><name x="238" y="-30">I11</name><label kind="invariant" x="264" y="-8">x1 &lt;= 1</label></location><location id="id3" x="0" y="0"><name x="-10" y="-30">I10</name></location><init ref="id3"/><transition><source ref="id2"/><target ref="id3"/><label kind="guard" x="208" y="40">x1 &lt;= 1</label><label kind="synchronisation" x="112" y="72">b!</label><nail x="192" y="64"/><nail x="64" y="64"/></transition><transition><source ref="id3"/><target ref="id2"/><label kind="guard" x="0" y="-72">x1 &gt;= 2</label><label kind="synchronisation" x="112" y="-88">a?</label><label kind="assignment" x="200" y="-72">x1 := 0</label><nail x="56" y="-56"/><nail x="192" y="-56"/></transition></template><system>// Place template instantiations here.
+P1 = Fig11();
+P2 = Fig12();
+
+
+// List one or more processes to be composed into a system.
+system P1,P2;</system></nta>

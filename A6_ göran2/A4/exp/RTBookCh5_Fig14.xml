@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+chan a;
+chan b;
+chan request;
+chan response;
+chan work;
+clock w; // Needs to be here since used at Verifier???
+
+</declaration><template><name x="5" y="5">System</name><declaration>// Place local declarations here.
+clock x;
+
+
+</declaration><location id="id0" x="264" y="-40"><name x="304" y="-64">send</name><label kind="invariant" x="304" y="-48">x &lt;= 10</label></location><location id="id1" x="144" y="-208"><name x="136" y="-248">req</name></location><location id="id2" x="16" y="-40"><name x="-72" y="-56">SysStart</name></location><init ref="id2"/><transition><source ref="id1"/><target ref="id0"/><label kind="synchronisation" x="200" y="-160">response?</label><label kind="assignment" x="232" y="-104">x := 0</label></transition><transition><source ref="id0"/><target ref="id2"/><label kind="guard" x="184" y="-32">x &gt;= 5</label><label kind="synchronisation" x="112" y="-32">work!</label></transition><transition><source ref="id2"/><target ref="id1"/><label kind="guard" x="-72" y="-32">w &lt;= 50</label><label kind="synchronisation" x="20" y="-139">request!</label><label kind="assignment" x="72" y="-184">w:=0</label></transition></template><template><name>Actuator</name><declaration>clock z;
+
+</declaration><location id="id3" x="224" y="0"><name x="256" y="-16">ActWork</name><label kind="invariant" x="264" y="0">z &lt;= 10</label></location><location id="id4" x="0" y="0"><name x="-80" y="-16">ActStart</name></location><init ref="id4"/><transition><source ref="id3"/><target ref="id4"/><label kind="guard" x="176" y="40">z == 10</label><nail x="160" y="48"/><nail x="48" y="48"/></transition><transition><source ref="id4"/><target ref="id3"/><label kind="synchronisation" x="80" y="-72">work?</label><label kind="assignment" x="168" y="-64">z := 0</label><nail x="40" y="-48"/><nail x="160" y="-48"/></transition></template><template><name>Sensor</name><declaration>clock y;</declaration><location id="id5" x="256" y="0"><name x="280" y="-16">SenWork</name><label kind="invariant" x="280" y="0">y &lt;= 20</label></location><location id="id6" x="0" y="0"><name x="-80" y="-16">SenStart</name></location><init ref="id6"/><transition><source ref="id5"/><target ref="id6"/><label kind="guard" x="224" y="40">y &gt;= 15</label><label kind="synchronisation" x="96" y="80">response!</label><nail x="192" y="64"/><nail x="64" y="64"/></transition><transition><source ref="id6"/><target ref="id5"/><label kind="synchronisation" x="96" y="-88">request?</label><label kind="assignment" x="216" y="-80">y := 0</label><nail x="64" y="-64"/><nail x="192" y="-64"/></transition></template><system>// Place template instantiations here.
+P1System = System();
+P2Sensor = Sensor();
+P3Actuator = Actuator();
+
+// List one or more processes to be composed into a system.
+system P1System, P2Sensor, P3Actuator;</system></nta>

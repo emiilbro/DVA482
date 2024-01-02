@@ -94,7 +94,7 @@
         \end{figure}
 
 
-        \subsection*{Mathematically calculated age delay (task b)}
+        \subsection*{\textbf{Mathematically calculated age delay (task b)}}
             The age delay is calculated as follows:
 
             \textbf{Step 1:} Identiy all reachable timed paths TPs that are initiated in the hyperperiod. 
@@ -115,11 +115,11 @@
             \end{figure}
 
             Calculations of the delays are as follows:
-            $$Delay(TP^A) = \alpha_4(TP^A) + R_4(TP^A) - \alpha_1(TP^A) = (7.62+10) + 4 - 0 = 21.62ms$$
-            $$Delay(TP^B) = \alpha_3(TP^B) + R_3(TP^B) - \alpha_1(TP^B) = (7.62+15) + 1 - 0 = 23.62ms$$
-            $$\text{Age Delay} = max(Delay(TP^A), Delay(TP^B)) = 23.62ms$$
+            $$Delay(TP^A) = \alpha_4(TP^A) + R_4(TP^A) - \alpha_1(TP^A) = (5.62+10) + 4 - 0 = 19.62ms$$
+            $$Delay(TP^B) = \alpha_3(TP^B) + R_3(TP^B) - \alpha_1(TP^B) = (5.62+15) + 1 - 0 = 21.62ms$$
+            $$\text{Age Delay} = max(Delay(TP^A), Delay(TP^B)) = 21.62ms$$
 
-            Therefore, the age delay is $23.62ms$.
+            Therefore, the age delay is $21.62ms$.
 
         \subsection*{\textbf{Mathematically calculated reaction delay (task b)}}
             The reaction delay is calculated using the following steps:
@@ -151,7 +151,7 @@
             Therefore, the reaction delay is $29.62ms$.
 
         \subsection*{\textbf{Are the specified age and reaction constraints satisfied?}}
-            Since the age constraint was set to $20ms$ and the age delay was calculated to $23.62ms$ the age constraint is not satisfied. Since the reaction constraint was set to $30ms$ and the reaction delay was calculated to $29.62ms$ the reaction constraint is satisfied.
+            Since the age constraint was set to $20ms$ and the age delay was calculated to $21.62ms$ the age constraint is not satisfied. Since the reaction constraint was set to $30ms$ and the reaction delay was calculated to $29.62ms$ the reaction constraint is satisfied.
 
         \subsection*{\textbf{Consequences of not uing the assumptions given for the assignment}}
             \subsubsection*{No offsets}
@@ -165,13 +165,3 @@
 
             \subsubsection*{Receiving tasks “just miss” the read access of the messages}
                 Using this assumption will highlight the complexity and issues of using a distributed real-time system. This means that the nodes might be out of synchronization and therefore the receiving tasks might just miss the message. This will result in a higher reaction delay and age delay.
-        
-
-
-
-
-
-  
-
-
-

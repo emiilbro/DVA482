@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-01-02T12:14:06.362Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="H5pQ4qwS_P2eE8UaKr-e" version="22.1.2" type="device">
+<mxfile host="Electron" modified="2024-01-02T12:18:04.676Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="ZSA3ZOsVOTajeG4E4E6P" version="22.1.2" type="device">
   <diagram name="Sida-1" id="ki3sTq9t21kcXtdD18XC">
-    <mxGraphModel dx="1221" dy="823" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1100" dy="809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -712,25 +712,25 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-1" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.flash;fillColor=#FF0000;rotation=15;" vertex="1" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-1" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.flash;fillColor=#FF0000;rotation=15;" parent="1" vertex="1">
           <mxGeometry x="723" y="286" width="10" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-4" value="&lt;font color=&quot;#ff0000&quot;&gt;Task 3 just misses the NEW message&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF0000;" vertex="1" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-4" value="&lt;font color=&quot;#ff0000&quot;&gt;Task 3 just misses the NEW message&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF0000;" parent="1" vertex="1">
           <mxGeometry x="744" y="286" width="119" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-9" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;endFill=1;strokeColor=#FF0000;strokeWidth=2;" edge="1" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-9" value="" style="endArrow=classic;dashed=1;html=1;rounded=0;endFill=1;strokeColor=#FF0000;strokeWidth=2;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="310" y="260" as="sourcePoint" />
             <mxPoint x="690" y="300" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-11" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.flash;fillColor=#FF0000;rotation=15;" vertex="1" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-11" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.basic.flash;fillColor=#FF0000;rotation=15;" parent="1" vertex="1">
           <mxGeometry x="320" y="286" width="10" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-12" value="&lt;font color=&quot;#ff0000&quot;&gt;Task 3 just misses Msg1&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF0000;" vertex="1" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-12" value="&lt;font color=&quot;#ff0000&quot;&gt;Task 3 just misses Msg1&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF0000;" parent="1" vertex="1">
           <mxGeometry x="340.5" y="286" width="119" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-13" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-13" value="" style="curved=1;endArrow=classic;html=1;rounded=0;strokeWidth=2;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="476" y="60" as="sourcePoint" />
             <mxPoint x="706" y="260" as="targetPoint" />
@@ -743,13 +743,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" source="G2Fz-3Bh_hETZenYadnG-15" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="G2Fz-3Bh_hETZenYadnG-15" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="567" y="58" as="sourcePoint" />
             <mxPoint x="490" y="70" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="G2Fz-3Bh_hETZenYadnG-15" value="NEW message" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="G2Fz-3Bh_hETZenYadnG-15" value="NEW message" style="text;html=1;strokeColor=default;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="528" y="40" width="68" height="37" as="geometry" />
         </mxCell>
       </root>

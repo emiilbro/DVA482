@@ -4,30 +4,30 @@ System 'Node_A'
 -------------------
 
 J[Sense_A] = 0.000000
-J[Act_A] = 4.866667
+J[Act_A] = 5.866667
 J[P1A] = 0.000000
 J[P2A] = 2.000000
 J[P3A] = 5.000000
 
 W[Sense_A] = 2.000000
-W[Act_A] = 2.000000
+W[Act_A] = 3.000000
 W[P1A] = 1.000000
-W[P2A] = 5.000000
+W[P2A] = 7.000000
 W[P3A] = 8.000000
 
 R[Sense_A] = 2.000000
-R[Act_A] = 6.866667
+R[Act_A] = 8.866667
 R[P1A] = 1.000000
-R[P2A] = 7.000000
+R[P2A] = 9.000000
 R[P3A] = 13.000000
 
 Jafter1[Trans1] = 2.000000
 Jafter1[Trans2] = 2.000000
 Jafter1[Trans3] = 5.000000
 
-TransactionsR[Trans1] = 6.866667
-TransactionsR[Trans2] = 8.266667
-TransactionsR[Trans3] = 29.800000
+TransactionsR[Trans1] = 8.866667
+TransactionsR[Trans2] = 15.266667
+TransactionsR[Trans3] = 36.933333
 
 LoadArray[Sense_A] = 0.100000
 LoadArray[Act_A] = 0.100000
@@ -42,30 +42,30 @@ System 'Node_B'
 -------------------
 
 J[Sense_B] = 0.000000
-J[Act_B] = 6.266667
+J[Act_B] = 12.266667
 J[P1B] = 0.000000
 J[P2B] = 2.000000
 J[P3B] = 5.000000
 
 W[Sense_B] = 2.000000
-W[Act_B] = 2.000000
+W[Act_B] = 3.000000
 W[P1B] = 1.000000
 W[P2B] = 7.000000
-W[P3B] = 8.000000
+W[P3B] = 9.000000
 
 R[Sense_B] = 2.000000
-R[Act_B] = 8.266667
+R[Act_B] = 15.266667
 R[P1B] = 1.000000
 R[P2B] = 9.000000
-R[P3B] = 13.000000
+R[P3B] = 14.000000
 
 Jafter1[Trans1] = 2.000000
 Jafter1[Trans2] = 2.000000
 Jafter1[Trans3] = 5.000000
 
-TransactionsR[Trans1] = 6.866667
-TransactionsR[Trans2] = 8.266667
-TransactionsR[Trans3] = 29.800000
+TransactionsR[Trans1] = 8.866667
+TransactionsR[Trans2] = 15.266667
+TransactionsR[Trans3] = 36.933333
 
 LoadArray[Sense_B] = 0.100000
 LoadArray[Act_B] = 0.100000
@@ -80,19 +80,19 @@ System 'Node_C'
 -------------------
 
 J[Sense_C] = 0.000000
-J[Act_C] = 25.800000
+J[Act_C] = 29.933333
 J[P1C] = 0.000000
 J[P2C] = 2.000000
 J[P3C] = 5.000000
 
 W[Sense_C] = 5.000000
-W[Act_C] = 4.000000
+W[Act_C] = 7.000000
 W[P1C] = 1.000000
 W[P2C] = 3.000000
 W[P3C] = 9.000000
 
 R[Sense_C] = 5.000000
-R[Act_C] = 29.800000
+R[Act_C] = 36.933333
 R[P1C] = 1.000000
 R[P2C] = 5.000000
 R[P3C] = 14.000000
@@ -101,9 +101,9 @@ Jafter1[Trans1] = 2.000000
 Jafter1[Trans2] = 2.000000
 Jafter1[Trans3] = 5.000000
 
-TransactionsR[Trans1] = 6.866667
-TransactionsR[Trans2] = 8.266667
-TransactionsR[Trans3] = 29.800000
+TransactionsR[Trans1] = 8.866667
+TransactionsR[Trans2] = 15.266667
+TransactionsR[Trans3] = 36.933333
 
 LoadArray[Sense_C] = 0.100000
 LoadArray[Act_C] = 0.050000
@@ -118,36 +118,36 @@ System 'Node_D'
 -------------------
 
 J[CalcA] = 3.000000
-J[CalcB] = 3.266667
-J[CalcC] = 10.400000
+J[CalcB] = 5.133333
+J[CalcC] = 11.400000
 
 J[CalcA] = 3.000000
-J[CalcB] = 3.266667
-J[CalcC] = 10.400000
+J[CalcB] = 5.133333
+J[CalcC] = 11.400000
 
 J[CalcA] = 3.000000
-J[CalcB] = 3.266667
-J[CalcC] = 10.400000
+J[CalcB] = 5.133333
+J[CalcC] = 11.400000
 
 W[CalcA] = 1.000000
-W[CalcB] = 2.000000
+W[CalcB] = 3.000000
 W[CalcC] = 10.000000
 
 R[CalcA] = 4.000000
-R[CalcB] = 5.266667
-R[CalcC] = 20.400000
+R[CalcB] = 8.133333
+R[CalcC] = 21.400000
 
 Jafter3[Trans1] = 4.000000
-Jafter3[Trans2] = 5.266667
-Jafter3[Trans3] = 20.400000
+Jafter3[Trans2] = 8.133333
+Jafter3[Trans3] = 21.400000
 
 Jafter3[Trans1] = 4.000000
-Jafter3[Trans2] = 5.266667
-Jafter3[Trans3] = 20.400000
+Jafter3[Trans2] = 8.133333
+Jafter3[Trans3] = 21.400000
 
 Jafter3[Trans1] = 4.000000
-Jafter3[Trans2] = 5.266667
-Jafter3[Trans3] = 20.400000
+Jafter3[Trans2] = 8.133333
+Jafter3[Trans3] = 21.400000
 
 LoadArray[CalcA] = 0.100000
 LoadArray[CalcB] = 0.200000
@@ -164,44 +164,44 @@ tau = 0.013333
 J[S_senseA] = 2.000000
 J[S_actA] = 4.000000
 J[S_senseB] = 2.000000
-J[S_actB] = 5.266667
+J[S_actB] = 8.133333
 J[S_senseC] = 5.000000
-J[S_actC] = 20.400000
+J[S_actC] = 21.400000
 
 J[S_senseA] = 2.000000
 J[S_actA] = 4.000000
 J[S_senseB] = 2.000000
-J[S_actB] = 5.266667
+J[S_actB] = 8.133333
 J[S_senseC] = 5.000000
-J[S_actC] = 20.400000
+J[S_actC] = 21.400000
 
 J[S_senseA] = 2.000000
 J[S_actA] = 4.000000
 J[S_senseB] = 2.000000
-J[S_actB] = 5.266667
+J[S_actB] = 8.133333
 J[S_senseC] = 5.000000
-J[S_actC] = 20.400000
+J[S_actC] = 21.400000
 
 J[S_senseA] = 2.000000
 J[S_actA] = 4.000000
 J[S_senseB] = 2.000000
-J[S_actB] = 5.266667
+J[S_actB] = 8.133333
 J[S_senseC] = 5.000000
-J[S_actC] = 20.400000
+J[S_actC] = 21.400000
 
 J[S_senseA] = 2.000000
 J[S_actA] = 4.000000
 J[S_senseB] = 2.000000
-J[S_actB] = 5.266667
+J[S_actB] = 8.133333
 J[S_senseC] = 5.000000
-J[S_actC] = 20.400000
+J[S_actC] = 21.400000
 
 J[S_senseA] = 2.000000
 J[S_actA] = 4.000000
 J[S_senseB] = 2.000000
-J[S_actB] = 5.266667
+J[S_actB] = 8.133333
 J[S_senseC] = 5.000000
-J[S_actC] = 20.400000
+J[S_actC] = 21.400000
 
 MaxBitSize[S_senseA] = 75.000000
 MaxBitSize[S_actA] = 65.000000
@@ -242,42 +242,42 @@ Trans_t_S_actB = 1.000000
 Trans_t_S_actC = 1.266667
 
 W[S_senseA] = 0.000000
-W[S_actA] = 0.000000
-W[S_senseB] = 0.000000
-W[S_actB] = 0.000000
-W[S_senseC] = 4.133333
-W[S_actC] = 4.133333
+W[S_actA] = 1.000000
+W[S_senseB] = 1.866667
+W[S_actB] = 3.133333
+W[S_senseC] = 5.133333
+W[S_actC] = 7.266667
 
 R[S_senseA] = 3.000000
-R[S_actA] = 4.866667
-R[S_senseB] = 3.266667
-R[S_actB] = 6.266667
-R[S_senseC] = 10.400000
-R[S_actC] = 25.800000
+R[S_actA] = 5.866667
+R[S_senseB] = 5.133333
+R[S_actB] = 12.266667
+R[S_senseC] = 11.400000
+R[S_actC] = 29.933333
 
 Jafter2[Trans1] = 3.000000
-Jafter2[Trans2] = 3.266667
-Jafter2[Trans3] = 10.400000
+Jafter2[Trans2] = 5.133333
+Jafter2[Trans3] = 11.400000
 
 Jafter2[Trans1] = 3.000000
-Jafter2[Trans2] = 3.266667
-Jafter2[Trans3] = 10.400000
+Jafter2[Trans2] = 5.133333
+Jafter2[Trans3] = 11.400000
 
 Jafter2[Trans1] = 3.000000
-Jafter2[Trans2] = 3.266667
-Jafter2[Trans3] = 10.400000
+Jafter2[Trans2] = 5.133333
+Jafter2[Trans3] = 11.400000
 
-Jafter4[Trans1] = 4.866667
-Jafter4[Trans2] = 6.266667
-Jafter4[Trans3] = 25.800000
+Jafter4[Trans1] = 5.866667
+Jafter4[Trans2] = 12.266667
+Jafter4[Trans3] = 29.933333
 
-Jafter4[Trans1] = 4.866667
-Jafter4[Trans2] = 6.266667
-Jafter4[Trans3] = 25.800000
+Jafter4[Trans1] = 5.866667
+Jafter4[Trans2] = 12.266667
+Jafter4[Trans3] = 29.933333
 
-Jafter4[Trans1] = 4.866667
-Jafter4[Trans2] = 6.266667
-Jafter4[Trans3] = 25.800000
+Jafter4[Trans1] = 5.866667
+Jafter4[Trans2] = 12.266667
+Jafter4[Trans3] = 29.933333
 
 LoadArray[S_senseA] = 0.100000
 LoadArray[S_actA] = 0.086667
@@ -326,14 +326,14 @@ LoadOnNodeD = 50.000000
 
 LoadOnCAN = 54.000000
 
-R_in_ms[Trans1] = 6.866667
-R_in_ms[Trans2] = 8.266667
-R_in_ms[Trans3] = 29.800000
+R_in_ms[Trans1] = 8.866667
+R_in_ms[Trans2] = 15.266667
+R_in_ms[Trans3] = 36.933333
 
 LocalResponseTimeNodeD[Trans1] = 1.000000
-LocalResponseTimeNodeD[Trans2] = 2.000000
+LocalResponseTimeNodeD[Trans2] = 3.000000
 LocalResponseTimeNodeD[Trans3] = 10.000000
 
-CANbusy_period[Trans1] = 1.866667
-CANbusy_period[Trans2] = 2.266667
-CANbusy_period[Trans3] = 10.800000
+CANbusy_period[Trans1] = 2.866667
+CANbusy_period[Trans2] = 7.266667
+CANbusy_period[Trans3] = 14.933333

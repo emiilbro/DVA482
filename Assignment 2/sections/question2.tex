@@ -59,33 +59,33 @@
             \hline
             \rowcolor{green!40}\textbf{Node/CAN} & \textbf{Task/Message} & \textbf{Priority}   \\ \hline
             \multirow{5}{*}{Node A}     & SenseA    & 2 \\
-                                        & ActA      & 2 \\ 
+                                        & ActA      & 3 \\ 
                                         & P1A       & 1 \\
-                                        & P2A       & 3 \\
-                                        & P3A       & 4 \\ \hline
+                                        & P2A       & 4 \\
+                                        & P3A       & 5 \\ \hline
             \multirow{5}{*}{Node B}     & SenseB    & 2 \\
-                                        & ActB      & 2 \\ 
+                                        & ActB      & 3 \\ 
                                         & P1B       & 1 \\
-                                        & P2B       & 3 \\
-                                        & P3B       & 4 \\ \hline
-            \multirow{5}{*}{Node C}     & SenseC    & 2 \\
-                                        & ActC      & 2 \\ 
+                                        & P2B       & 4 \\
+                                        & P3B       & 5 \\ \hline
+            \multirow{5}{*}{Node C}     & SenseC    & 3 \\
+                                        & ActC      & 4 \\ 
                                         & P1C       & 1 \\
-                                        & P2C       & 3 \\
-                                        & P3C       & 4 \\ \hline
+                                        & P2C       & 2 \\
+                                        & P3C       & 5 \\ \hline
             \multirow{3}{*}{Node D}     & CalcA     & 1 \\
-                                        & CalcB     & 1 \\ 
-                                        & CalcC     & 2 \\ \hline
+                                        & CalcB     & 2 \\ 
+                                        & CalcC     & 3 \\ \hline
             \multirow{6}{*}{CAN}        & SenseA    & 1 \\
-                                        & ActA      & 1 \\ 
-                                        & SenseB    & 1 \\
-                                        & ActB      & 1 \\
-                                        & SenseC    & 2 \\
-                                        & ActC      & 2 \\ \hline
+                                        & ActA      & 2 \\ 
+                                        & SenseB    & 3 \\
+                                        & ActB      & 4 \\
+                                        & SenseC    & 5 \\
+                                        & ActC      & 6 \\ \hline
             \end{tabular}
         \end{table}
     \end{minipage}
-    \caption{The priorities of the tasks and messages. Priority is set according to Rate Monotonic and 1 is the highest priority possible.}
+    \caption{The priorities of the tasks and messages. Priority is set according to Rate Monotonic and 1 is the highest priority possible. Where there is local precedence the priority is set according to the order of execution of the tasks within the transaction. The CAN bus message priorities are set according to local precedence and priority of the transactions, i.e. Trans 1 has the highest priority and Trans 3 has the lowest priority.}
     \label{fig:priority}
     \end{figure}
     \renewcommand{\arraystretch}{1.0}
@@ -102,23 +102,23 @@
             \hline
             \rowcolor{green!40}\textbf{Node} & \textbf{Task} & \textbf{Local Response-Time (ms)}   \\ \hline
             \multirow{5}{*}{Node A}     & SenseA    & 2.000 \\
-                                        & ActA      & 6.867 \\ 
+                                        & ActA      & 8.867 \\ 
                                         & P1A       & 1.000 \\
-                                        & P2A       & 7.000 \\
+                                        & P2A       & 9.000 \\
                                         & P3A       & 13.000 \\ \hline
             \multirow{5}{*}{Node B}     & SenseB    & 2.000 \\
-                                        & ActB      & 8.267 \\ 
+                                        & ActB      & 15.267 \\ 
                                         & P1B       & 1.000 \\
                                         & P2B       & 9.000 \\
-                                        & P3B       & 13.000 \\ \hline
+                                        & P3B       & 14.000 \\ \hline
             \multirow{5}{*}{Node C}     & SenseC    & 5.000 \\
-                                        & ActC      & 29.800 \\ 
+                                        & ActC      & 36.934 \\ 
                                         & P1C       & 1.000 \\
                                         & P2C       & 5.000 \\
                                         & P3C       & 14.000 \\ \hline
             \multirow{3}{*}{Node D}     & CalcA     & 4.000 \\
-                                        & CalcB     & 5.267 \\ 
-                                        & CalcC     & 20.400 \\ \hline
+                                        & CalcB     & 8.134 \\ 
+                                        & CalcC     & 21.400 \\ \hline
             \end{tabular}
         \end{table}
     \end{minipage}
@@ -136,9 +136,9 @@
         \begin{tabular}{|l|l|}
             \hline
             \rowcolor{green!40}\textbf{Busy periods on CAN}  & \textbf{Periods} \\ \hline
-            Trans1                                  & 1.867                     \\ \hline
-            Trans2                                  & 2.267                     \\ \hline
-            Trans2                                  & 10.800                    \\ \hline
+            Trans1                                  & 2.867                     \\ \hline
+            Trans2                                  & 7.267                     \\ \hline
+            Trans2                                  & 14.934                    \\ \hline
         \end{tabular}
         \end{table}
     \end{minipage}%
@@ -156,9 +156,9 @@
         \begin{tabular}{|l|l|}
             \hline
             \rowcolor{green!40}\textbf{Transaction}  & \textbf{Transaction Time} \\ \hline
-            Trans1                                  & 6.867                     \\ \hline
-            Trans2                                  & 8.267                     \\ \hline
-            Trans2                                  & 29.800                    \\ \hline
+            Trans1                                  & 8.867                     \\ \hline
+            Trans2                                  & 15.267                    \\ \hline
+            Trans2                                  & 36.934                    \\ \hline
         \end{tabular}
         \end{table}
     \end{minipage}%
